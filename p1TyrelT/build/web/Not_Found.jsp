@@ -16,7 +16,7 @@
     <body>
         <div id="Header">
             <ul id="Navigation_Bar" class="nav nav-tabs">
-                <li role="presentation" class="active"><a href="Home">Home</a></li>
+                <li role="presentation"><a href="Home">Home</a></li>
             </ul>
             <div class="jumbotron text-center">
                 <h1>Tyrel Tachibana</h1>

@@ -1,0 +1,102 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title> Tyrel Tachibana </title>
+	<link rel="shortcut icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <link rel="icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> </meta>
+        <meta name="Description" content="I am a software developer, and this is my portfolio."> </meta>
+        <meta name="Author" content="Tyrel tachibana"> </meta>
+        <meta name="Keywords" content="Tachibana, Software, Code"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+        <meta charset="UTF-8"> </meta>
+    </h:head>
+    <h:body>
+        <div id="Header">
+            <ul id="Navigation_Bar" class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="index.jsf">Home</a></li>
+            </ul>
+            <div class="jumbotron text-center">
+                <h1>Tyrel Tachibana</h1>
+                <p>p4TyrelT</p>
+                <h2 class="text-center">Tachibana Software!</h2>
+            </div>
+        </div>
+        <div id="body" class="container">
+            <h2 class="text-center">Book Store</h2>
+            <div class="row">
+                <p class="col-md-3"></p>
+                <h:form id="form1" class="col-md-8">
+                    <h:dataTable value="#{bookDatabase.books}" var ="book" border ="2" rowClasses="evenRow,oddRow" class="col-md-10">
+                        <h:column>
+                            <f:facet name="header">Title</f:facet>
+                                #{book.title}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Author</f:facet>
+                                #{book.author}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Unit Price</f:facet>
+                            <h:outputText	value="#{book.unitPrice}">
+                                <f:convertNumber currencyCode="USD" type="currency"/>
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:commandLink value="Add to Shopping Cart" action="#{shoppingCart.add(book)}" >
+                                <f:ajax render="form2" />
+                            </h:commandLink>
+                        </h:column>            
+                    </h:dataTable>
+                </h:form>
+            </div>
+            <br/>
+            <div class="row">
+                <p class="col-md-3"></p>
+                <h:form id="form2"  class="col-md-8">
+                    Shopping Cart Contents:
+                    <h:dataTable value="#{shoppingCart.cart}" var="item" class="col-md-10">
+                        <h:column>
+                            <f:facet name="header">Title</f:facet>
+                                #{item.title}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Author</f:facet>
+                                #{item.author}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Quantity</f:facet>
+                                #{item.count}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Sub Total</f:facet>
+                            <h:outputText value="#{item.price}">
+                                <f:convertNumber currencyCode="USD" type="currency"/>
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Action</f:facet>
+                            <h:commandLink value="Reduce Q’ty by 1" action="#{shoppingCart.removeItem(item)}" >
+                                <f:ajax render="@form" />
+                            </h:commandLink>  
+                        </h:column>
+                    </h:dataTable>
+                    <HR width ="60%" color ="blue" SIZE ="3"> </HR>
+                    Your total price is: 
+                    <h:outputText value="#{shoppingCart.totalPrice}">
+                        <f:convertNumber currencyCode="USD" type="currency"/>
+                    </h:outputText>
+                </h:form>
+            </div>
+        </div>
+        <div id="Footer" class="container">
+            <p class="text-center">
+                <a href="http://www.tachibanasoftware.com/">Tachibana Software</a>
+            </p>
+        </div>
+    </h:body>
+</html>

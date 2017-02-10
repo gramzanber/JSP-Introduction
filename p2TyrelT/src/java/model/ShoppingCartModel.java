@@ -46,7 +46,7 @@ public class ShoppingCartModel
     public String getItemBaseAmount(int index){return price.toArray()[index].toString();}
     public String getItemTotal(int index)
     {
-        return "$" + (Double.parseDouble(quantity.toArray()[index].toString()) * Double.parseDouble(price.toArray()[index].toString()));
+        return "$" + String.format("%,.2f", (Double.parseDouble(quantity.toArray()[index].toString()) * Double.parseDouble(price.toArray()[index].toString())));
     }
     public String getGrandTotal(int index)
     {

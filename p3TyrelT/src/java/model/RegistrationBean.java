@@ -38,57 +38,57 @@ public class RegistrationBean implements Serializable
     public static boolean isNumeric(String str)
     {
         for (int i = str.length();--i>=0;)
-        {
-           if (!Character.isDigit(str.charAt(i))){return false;}  
-        }  
+            if (!Character.isDigit(str.charAt(i)))
+                return false;
         return true;  
     }  
     
     public String showInfo()
     {
         error = "";
+        
         if (lastName.trim().isEmpty())
         {
-            error += "(lastName)";
+            error = error + "(lastName)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please input your last name", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:lastName", facesMsg);    
         }
         else if(isNumeric(lastName))
         {
-            error += "(lastName)";
+            error = error + "(lastName)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Alphabet only", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:lastName", facesMsg);   
         }
         
         if (firstName.trim().isEmpty())
         {
-            error += "(firstName)";
+            error = error + "(firstName)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please input your first name", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:firstName", facesMsg);    
         }
         else if(isNumeric(firstName))
         {
-            error += "(lastName)";
+            error = error + "(lastName)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Alphabet only", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:firstName", facesMsg);   
         }  
         
         if (password.trim().isEmpty())
         {
-            error += "(password)";
+            error = error + "(password)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please type in your password", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:password", facesMsg);    
         }
         else if(password.length()<4)
         {
-            error += "(password)";
+            error = error + "(password)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Password should at least 4 chars", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:password", facesMsg);
         }
 
         if (email.trim().isEmpty())
         {
-            error += "(email)";
+            error = error + "(email)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "type in your email address", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:email", facesMsg);    
         }
@@ -100,34 +100,34 @@ public class RegistrationBean implements Serializable
 
         if (phoneNumber.trim().isEmpty())
         {
-            error += "(phoneNumber)";
+            error = error + "(phoneNumber)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "type in your Phone#", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:phoneNumber", facesMsg);    
         }
         else if(!(phoneNumber.contains("-")))
         {
-            error += "(phoneNumber)";
+            error = error + "(phoneNumber)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please type in # in this format: ###-###-####", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:phoneNumber", facesMsg);    
         }
 
         if (gender == null)
         {
-            error +=" (gender)";
+            error = error + " (gender)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please choose your gender", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:Gender", facesMsg);    
         }
         
         if (city.equals("-- choose --"))
         {
-            error += " (city)";
+            error = error + " (city)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please choose your city", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:City", facesMsg); 
         }
         
         if (languages.isEmpty())
         {
-            error += "(languages)";
+            error = error + "(languages)";
             FacesMessage facesMsg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "please choose at least one languages", null);
             FacesContext.getCurrentInstance().addMessage("registrationform:Languages", facesMsg);    
         }
