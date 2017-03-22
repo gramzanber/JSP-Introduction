@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title> Tyrel Tachibana </title>
+	<link rel="shortcut icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <link rel="icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> </meta>
+        <meta name="Description" content="I am a software developer, and this is my portfolio."> </meta>
+        <meta name="Author" content="Tyrel tachibana"> </meta>
+        <meta name="Keywords" content="Tachibana, Software, Code"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+        <meta charset="UTF-8"> </meta>
+    </h:head>
+    <h:body>
+        <div id="Header">
+            <ul id="Navigation_Bar" class="nav nav-tabs">
+                <li role="presentation"><a href="/p7TyrelT/index.jsf">Home</a></li>
+                <li role="presentation"><a href="/p7TyrelT/products.jsf">Browse Products</a></li>
+                <li role="presentation"><a href="/p7TyrelT/registration.jsf">Register</a></li>
+                <li role="presentation"><a href="/p7TyrelT/shoppingcart.jsf">Shopping Cart</a></li>
+                <li role="presentation"><a href="/p7TyrelT/logout.jsf">Logout</a></li>
+                <li role="presentation"><a href="/p7TyrelT/customerFolder/profile.jsf">Customer Home</a></li>
+                <li role="presentation"><a href="/p7TyrelT/customerFolder/checkout.jsf">Checkout</a></li>
+                <p class="col-md-6"></p>
+                <li role="presentation" class="active"><a href="/p7TyrelT/adminFolder/adminhome.jsf">Administrator Home</a></li>
+                <li role="presentation"><a href="/p7TyrelT/adminFolder/dbmanage.jsf">Database Management</a></li>
+            </ul>
+            <div class="jumbotron text-center">
+                <h1>Tyrel Tachibana</h1>
+                <p>p7TyrelT</p>
+                <h2 class="text-center">Tachibana Software!</h2>
+            </div>
+        </div>
+        <div id="body" class="container">
+            <h1>Hello! #{facesContext.externalContext.userPrincipal.name}</h1>
+            <br/>
+            <h2 style="color: blue">Admin Home Page</h2>
+            <br />
+    </div>
+        <div id="Footer" class="container">
+            <p class="text-center">
+                <a href="http://www.tachibanasoftware.com/">Tachibana Software</a>
+            </p>
+        </div>
+    </h:body>
+</html>

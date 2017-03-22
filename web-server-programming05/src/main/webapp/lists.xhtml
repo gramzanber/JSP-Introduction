@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>User lists</title>
+        <link rel="shortcut icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <link rel="icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> </meta>
+        <meta name="Description" content="I am a software developer, and this is my portfolio."> </meta>
+        <meta name="Author" content="Tyrel tachibana"> </meta>
+        <meta name="Keywords" content="Tachibana, Software, Code"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+        <meta charset="UTF-8"> </meta>
+    </h:head>
+    <h:body>
+        <div id="Header">
+            <ul id="Navigation_Bar" class="nav nav-tabs">
+                <li role="presentation"><a href="index.jsf">Home</a></li>
+                <li role="presentation"><a href="showinformation.jsf">Show Information</a></li>
+                <li role="presentation" class="active"><a href="lists.jsf">See all Users</a></li>
+            </ul>
+            <div class="jumbotron text-center">
+                <h1>Tyrel Tachibana</h1>
+                <p>p5TyrelT</p>
+                <h2 class="text-center">Tachibana Software!</h2>
+            </div>
+        </div>
+        <div id="body" class="container">
+            <h2 class="text-center">User List</h2>
+            <HR width ="80%" color ="red" SIZE ="5"> </HR>
+            <div class="row">
+                <h:form id="form">
+                    <p class="col-md-1"></p>
+                    <h:message for="form" errorStyle="color:red"/>
+                    <h:dataTable value="#{registrationBean.users}" var="user" class="col-md-10">
+                        <h:column>
+                            <f:facet name="header">last name</f:facet>
+                                #{user.lname}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">first name</f:facet>
+                                #{user.fname}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Email address</f:facet>
+                                #{user.email}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">phone#</f:facet>
+                                #{user.phoneNumber}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">hometown</f:facet>
+                                #{user.city}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">gender</f:facet>
+                                #{user.gender}
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Languages</f:facet>
+                                #{user.languages}
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+            <br/>
+            <div class="row">
+                <p class="col-md-5"></p>
+                <h:form id="form2"><h:commandButton class="btn col-md-2" value ="Back to home" action ="index.jsf"/></h:form>
+            </div>
+            <br/>
+        </div>
+        <div id="Footer" class="container">
+            <p class="text-center">
+                <a href="http://www.tachibanasoftware.com/">Tachibana Software</a>
+            </p>
+        </div>
+    </h:body>
+</html>

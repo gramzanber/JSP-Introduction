@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title> Tyrel Tachibana </title>
+	<link rel="shortcut icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <link rel="icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> </meta>
+        <meta name="Description" content="I am a software developer, and this is my portfolio."> </meta>
+        <meta name="Author" content="Tyrel tachibana"> </meta>
+        <meta name="Keywords" content="Tachibana, Software, Code"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+        <meta charset="UTF-8"> </meta>
+    </h:head>
+    <h:body>
+        <div id="Header">
+            <ul id="Navigation_Bar" class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="index.jsf">Home</a></li>
+                <li role="presentation"><a href="showinformation.jsf">Show Information</a></li>
+                <li role="presentation"><a href="lists.jsf">See all Users</a></li>
+            </ul>
+            <div class="jumbotron text-center">
+                <h1>Tyrel Tachibana</h1>
+                <p>p5TyrelT</p>
+                <h2 class="text-center">Tachibana Software!</h2>
+            </div>
+        </div>
+        <div id="body" class="container">
+            <h2 class="text-center">Registration Form</h2>
+            <HR width ="80%" color ="blue" SIZE ="5"> </HR>
+            <h:form id="registrationform">
+                <div class="row">
+                    <p class="col-md-3"></p>
+                    <h:panelGrid class="col-md-6 text-center" columns="3">
+                        Last Name:
+                        <h:inputText id="lastName" value="#{registrationBean.lastName}"/>
+                        <h:message for="lastName" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        First Name:
+                        <h:inputText id="firstName" value="#{registrationBean.firstName}"/>
+                        <h:message for="firstName" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        Password:
+                        <h:inputSecret id="password" value="#{registrationBean.password}"/>
+                        <h:message for="password" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        E-mail address:
+                        <h:inputText id="email" value="#{registrationBean.email}"/>
+                        <h:message for="email" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        Phone Number:
+                        <h:inputText id="phoneNumber" value="#{registrationBean.phoneNumber}"/>
+                        <h:message for="phoneNumber" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        Gender:
+                        <h:selectOneRadio id = "Gender" value="#{registrationBean.gender}">
+                            <f:selectItem itemValue="male" itemLabel="male" />
+                            <f:selectItem itemValue="female" itemLabel="female" />
+                        </h:selectOneRadio>
+                        <h:message for="Gender" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        Languages:
+                        <h:selectManyCheckbox id = "Languages" value="#{registrationBean.languages}">
+                            <f:selectItems value="#{registrationBean.languageItems}"/>
+                        </h:selectManyCheckbox>
+                        <h:message for="Languages" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        Hometown:
+                        <h:selectOneMenu id ="City" value="#{registrationBean.city}">
+                            <f:selectItems value="#{registrationBean.availableCities}"/>
+                        </h:selectOneMenu>
+                        <h:message for="City" 
+                                   errorStyle="color: red" infoStyle="color: green" />
+                        <h:panelGroup />
+                    </h:panelGrid>
+                </div>
+                <br/>
+                <div class="row">
+                    <p class="col-md-5"></p>
+                    <h:commandButton class="btn col-md-2" value="Sign Up" action="#{registrationBean.showInfo}"/>
+                </div>
+                <br/>
+            </h:form>
+            <div class="row">
+                <p class="col-md-5"></p>
+                <h:form id="form"><h:commandButton class="btn col-md-2" value ="Show All" action ="lists.jsf"/></h:form>
+            </div>
+            <br/>
+        </div>
+        <div id="Footer" class="container">
+            <p class="text-center">
+                <a href="http://www.tachibanasoftware.com/">Tachibana Software</a>
+            </p>
+        </div>
+    </h:body>
+</html>

@@ -18,3 +18,27 @@ Web Server Programming - Project 03
 This project is the first switch to JSF (Java Server Faces) and since it is we are doing simple forms to pass information from one page to another.
 
 Video Demonstration: https://www.youtube.com/watch?v=vM544Ktr7Y0
+
+Web Server Programming - Project 04
+
+This is a JSF remake of project 02, where I have a pretty basic shopping page.
+
+Video Demonstration: https://www.youtube.com/watch?v=AKgomSGAFJ8
+
+Web Server Programming - Project 05
+
+This is a JSF remake of project 02, where I have a pretty basic shopping page.
+
+Video Demonstration: https://www.youtube.com/watch?v=AKgomSGAFJ8
+
+Web Server Programming - Project 06
+
+This is a JSF remake of project 02, where I have a pretty basic shopping page.
+
+Video Demonstration: https://www.youtube.com/watch?v=AKgomSGAFJ8
+
+Web Server Programming - Project 07
+
+This is a JSF remake of project 02, where I have a pretty basic shopping page.
+
+Video Demonstration: https://www.youtube.com/watch?v=AKgomSGAFJ8

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title> Tyrel Tachibana </title>
+	<link rel="shortcut icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <link rel="icon" href="http://www.ttachibana.com/Image/Tachibana_Icon.png" />
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge"> </meta>
+        <meta name="Description" content="I am a software developer, and this is my portfolio."> </meta>
+        <meta name="Author" content="Tyrel tachibana"> </meta>
+        <meta name="Keywords" content="Tachibana, Software, Code"> </meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> </meta>
+        <meta charset="UTF-8"> </meta>
+    </h:head>
+    <h:body>
+        <div id="Header">
+            <ul id="Navigation_Bar" class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="index.jsf">Home</a></li>
+            </ul>
+            <div class="jumbotron text-center">
+                <h1>Tyrel Tachibana</h1>
+                <p>p6TyrelT</p>
+                <h2 class="text-center">Tachibana Software!</h2>
+            </div>
+        </div>
+        <div id="body" class="container">
+            <h2 class="text-center">Book Store</h2>
+            <HR width ="80%" color ="red" SIZE ="5"> </HR> 
+            <div class="row">
+                <h3 class="text-center">Add a Book</h3>
+                <p class="col-md-5"></p>
+                <h:form id="inputform" class="col-md-5">
+                    <h:panelGrid columns="3" cellpadding="0" cellspacing="2">
+                        Title:
+                        <h:inputText id="title"  size="20" value="#{bean.title}" />
+                        <h:message for="title" errorStyle="color: red" />
+                        Author:
+                        <h:inputText id="author"  size="20" value="#{bean.author}" />
+                        <h:message for="author" errorStyle="color: red" />
+                        Year:
+                        <h:inputText id="year"  size="10" value="#{bean.year}" />
+                        <h:message for="year" errorStyle="color: red" />
+                        Price:
+                        <h:inputText id="price"  size="10" value="#{bean.price}"/>
+                        <h:message for="price" errorStyle="color: red" />
+                    </h:panelGrid>
+                    <br />
+                    <h:commandButton value="Submit" action="#{bean.insert}" class="col-md-6"/>
+                </h:form>
+            </div>
+            <HR width ="60%" color ="red" SIZE ="5"> </HR>
+            <div class="row">
+                <h3 class="text-center">Current Books</h3>
+                <p class="col-md-2"></p>
+                <h:form id="outputform" class="col-md-10">
+                    <h:dataTable value ="#{bean.books}" var ="book" border ="1" class="col-md-10">
+                        <h:column>
+                        <f:facet name="header">Edit</f:facet>
+                        <h:selectBooleanCheckbox value="#{book.editable}" onclick = "submit()"/>
+                        </h:column>
+                        <h:column>
+                           <f:facet name="header">Title</f:facet>
+                           <h:inputText id="title2" value="#{book.title}" 
+                                     rendered="#{book.editable}" size="20"/>
+                           <h:outputText value="#{book.title}" 
+                                      rendered="#{not book.editable}"/>
+                           <h:message for="title2" errorStyle="color: red" />
+                        </h:column>
+                        <h:column>
+                           <f:facet name="header">Author</f:facet>
+                           <h:inputText id="author2" value="#{book.author}" 
+                                     rendered="#{book.editable}" size="20"/>
+                           <h:outputText value="#{book.author}" 
+                                      rendered="#{not book.editable}"/>
+                           <h:message for="author2" errorStyle="color: red" />
+                        </h:column>
+                        <h:column>
+                           <f:facet name="header">Price</f:facet>
+                           <h:inputText id="price2" value="#{book.price}" rendered="#{book.editable}" size="20"/>
+                           <h:outputText value="#{book.price}"  rendered="#{not book.editable}">
+                                <f:convertNumber currencyCode="USD" type="currency"/>
+                           </h:outputText>
+                           <h:message for="price2" errorStyle="color: red" />
+                        </h:column>
+                        <h:column>
+                           <f:facet name="header">Year</f:facet>
+                           <h:inputText id="year2" value="#{book.year}" 
+                                     rendered="#{book.editable}" size="20"/>
+                           <h:outputText value="#{book.year}" 
+                                      rendered="#{not book.editable}"/>
+                           <h:message for="year2" errorStyle="color: red" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Remove</f:facet>
+                            <h:commandButton value="delete" action ="#{bean.delete(book)}" disabled="#{not book.editable}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Save</f:facet>
+                            <h:commandButton value="save" action ="#{bean.save(book)}" disabled="#{not book.editable}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:form>
+            </div>
+            <br/>
+        </div>
+        <div id="Footer" class="container">
+            <p class="text-center">
+                <a href="http://www.tachibanasoftware.com/">Tachibana Software</a>
+            </p>
+        </div>
+    </h:body>
+</html>
