@@ -30,7 +30,7 @@
                 <div class="panel-heading">
                     <h3 class="panel-title"><h1 class="text-center">Shopping Cart</h1></h3>
                 </div>
-                <% model.ShoppingCartModel cart = (model.ShoppingCartModel)session.getAttribute("Cart"); %>
+                <% com.ttachibana.model.ShoppingCartModel cart = (com.ttachibana.model.ShoppingCartModel)session.getAttribute("Cart"); %>
                 <% if(cart != null && !cart.cartEmpty()) { %>
                     <div class="panel-body">
                         <div class="row">

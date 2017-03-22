@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <display-name>Tyrel Tachibana</display-name>
+    <display-name>Web Server Programming 02</display-name>
     <servlet>
         <servlet-name>Home</servlet-name>
-        <jsp-file>index.jsp</jsp-file>
+        <jsp-file>/index.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>ShoppingCart</servlet-name>
-        <servlet-class>controller.ShoppingCartController</servlet-class>
+        <servlet-class>com.ttachibana.controller.ShoppingCartController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Shopping_Cart</servlet-name>
-        <jsp-file>shoppingCart.jsp</jsp-file>
+        <jsp-file>/shoppingCart.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>Error_Page</servlet-name>
-        <jsp-file>errorPage.jsp</jsp-file>
+        <jsp-file>/errorPage.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>Not_Found</servlet-name>
-        <jsp-file>Not_Found.jsp</jsp-file>
+        <jsp-file>/Not_Found.jsp</jsp-file>
     </servlet>
     <servlet>
         <servlet-name>No_Access</servlet-name>
-        <jsp-file>No_Access.jsp</jsp-file>
+        <jsp-file>/No_Access.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/Home</url-pattern>
+        <url-pattern>/index.html</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ShoppingCart</servlet-name>
@@ -55,7 +56,7 @@
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>Home</welcome-file>
+        <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <error-page>
         <error-code>404</error-code>
